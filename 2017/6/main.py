@@ -35,14 +35,14 @@ with open("dane.txt", "r") as f:
             if abs(piksele[i+1][j]-piksele[i][j]) > 128:
                 suma +=1
             if abs(piksele[i][j+1]-piksele[i][j]) > 128:
-                suma +1
+                suma +=1
     for i in range(0, len(piksele)-1):
         if abs(piksele[i][-1] - piksele[i+1][-1]) > 128:
-            suma+1
+            suma+=1
 
     for i in range(0, len(piksele[0])-1):
         if abs(piksele[-1][i] - piksele[-1][i+1]) > 128:
-            suma+1
+            suma+=1
         
 
     print(suma) 
