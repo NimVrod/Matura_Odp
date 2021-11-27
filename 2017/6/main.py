@@ -5,7 +5,7 @@ with open("przyklad.txt", "r") as f:
     for line in f:
         tab = line.split(" ")
         for px in tab:
-            piksele.append(px)   
+            piksele.append(int(px))   
 
     print(f"Najciemniejszy piskel: {min(piksele)}\nNajciemniejszy piksel: {max(piksele)}")
 
@@ -48,27 +48,40 @@ with open("przyklad.txt", "r") as f:
     print(suma) 
 
 
-#def find_max(piksele,j : int = 0, start : int = 0):
-#    for i in range(start, len(piksele-1)):
-#        if piksele[j][i] == piksele[j][i+1]:
-#            pass
-#        else:
-#            zepsucie = i
-#        
-#
-#
-#
-##podpunkt 4
-#with open("przyklad.txt", "r") as f:
-#    piksele = []
-#    for line in f:
-#        tab= line.split(" ")
-#        piksele.append(tab)
-#
-#    dlugosc = []
-#    for i in range(0, len(piksele[0])):
-#        for j in range(0, len(piksele)):
-#            ...
 
+
+
+def find_max_in_one(piksele,j : int = 0, start : int = 0):
+    for i in range(start, len(piksele)):
+        if piksele[j][i] != piksele[j][i+1]:
+            return start, i
+
+
+
+def find_max(piksele, j):
+    start = 0
+    maxy = []
+    while start < len(piksele):
+        e = find_max_in_one(piksele, j, start)
+        start = e[0]
+        maxy.append(e[1])
+
+    return max(maxy)
+    
+
+
+
+
+
+#podpunkt 4
+with open("przyklad.txt", "r") as f:
+    piksele = []
+    for line in f:
+        tab= line.split(" ")
+        piksele.append(tab)
+
+    dlugosc = []
+    for i in range(0, len(piksele[0])):
+        dlugosc.append(find_max(piksele, i))
 
     
