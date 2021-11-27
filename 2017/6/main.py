@@ -1,6 +1,6 @@
 import math
 #podpunkt 1
-with open("dane.txt", "r") as f:
+with open("przyklad.txt", "r") as f:
     piksele = []
     for line in f:
         tab = line.split(" ")
@@ -10,7 +10,7 @@ with open("dane.txt", "r") as f:
     print(f"Najciemniejszy piskel: {min(piksele)}\nNajciemniejszy piksel: {max(piksele)}")
 
 #podpunkt 2
-with open("dane.txt", "r") as f:
+with open("przyklad.txt", "r") as f:
     suma = 0
     for line in f:
         tab= line.split(" ")
@@ -23,7 +23,7 @@ with open("dane.txt", "r") as f:
 
 
 #podpunkt 3
-with open("dane.txt", "r") as f:
+with open("przyklad.txt", "r") as f:
     piksele = []
     for line in f:
         tab= line.split(" ")
@@ -59,7 +59,7 @@ with open("dane.txt", "r") as f:
 #
 #
 ##podpunkt 4
-#with open("dane.txt", "r") as f:
+#with open("przyklad.txt", "r") as f:
 #    piksele = []
 #    for line in f:
 #        tab= line.split(" ")
