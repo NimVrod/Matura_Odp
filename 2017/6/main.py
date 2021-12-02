@@ -13,7 +13,8 @@ with open("przyklad.txt", "r") as f:
 with open("przyklad.txt", "r") as f:
     suma = 0
     for line in f:
-        tab= line.split(" ")
+        tab1= line.split(" ")
+        tab = [int(x) for x in tab1]
         for i in range(0, math.floor(len(tab)/2)):
             if tab[i] != tab[-i]:
                 suma +=1
@@ -27,7 +28,8 @@ with open("przyklad.txt", "r") as f:
     piksele = []
     for line in f:
         tab= line.split(" ")
-        piksele.append(tab)
+        tab1 = [int(x) for x in tab]
+        piksele.append(tab1)
 
     suma = 0
     for i in range(0, len(piksele[0])-1):
