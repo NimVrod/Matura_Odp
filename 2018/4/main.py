@@ -16,9 +16,10 @@ print(slowo)
 rozne_litery = []
 for s in tab:
     suma = 0
+    litery = {}
     for litera in s:
-        if s.count(litera) <= 1:
-            suma += 1
+        if litera not in litery:
+            suma += 1; litery[litera] = s.index(litera)
     rozne_litery.append(suma)  # zoptymalizowac kiedys
 
 print(f"{tab[rozne_litery.index(max(rozne_litery))]} {max(rozne_litery)}")
