@@ -42,6 +42,3 @@ with open("dane6_3.txt","r") as f, open("wynik6_3.txt", "w") as o:
         wyrazy.append(tab[0] + "\n")
 
     o.writelines(wyrazy)   
-            
-
-    
