@@ -1,6 +1,7 @@
+import math
 #odczyt z pliku
 liczby = []
-with open("przyklad.txt", "r") as f:
+with open("liczby.txt", "r") as f:
     for line in f:
         liczby.append(int(line.strip()))
 
@@ -39,4 +40,24 @@ for liczba in liczby:
 
 print(suma2)
 
+dlugosc = []
+dzielniki = []
+pierwszeliczby = []
+for i in range(0, len(liczby)):
+    for j in range(i+1, len(liczby)):
+        dzielnik = int(math.gcd(*liczby[i:j]))
+        #print(liczby[i:j])
+        #print(f"{i} : {j} : {dzielnik}")
+        if dzielnik > 1:
+            pass
+        else:
+            dlugosc.append(j-i-1); dzielniki.append(math.gcd(*liczby[i:j-1])); pierwszeliczby.append(liczby[i]); break
 
+indeks = dlugosc.index(max(dlugosc))
+print(f"{dlugosc[indeks]} : {pierwszeliczby[indeks]} : {dzielniki[indeks]}")
+
+#zapis do pliku
+with open ("wynik4.txt", "w") as f:
+    f.write(f"4.1 {suma}\n")
+    f.write(f"4.2 {suma2}\n")
+    f.write(f"4.3 {dlugosc[indeks]} : {pierwszeliczby[indeks]} : {dzielniki[indeks]}\n")
