@@ -45,19 +45,16 @@ dzielniki = []
 pierwszeliczby = []
 for i in range(0, len(liczby)):
     for j in range(i+1, len(liczby)):
-        dzielnik = int(math.gcd(*liczby[i:j]))
-        #print(liczby[i:j])
-        #print(f"{i} : {j} : {dzielnik}")
+        dzielnik = math.gcd(*liczby[i:j])
         if dzielnik > 1:
-            pass
-        else:
-            dlugosc.append(j-i-1); dzielniki.append(math.gcd(*liczby[i:j-1])); pierwszeliczby.append(liczby[i]); break
+            dlugosc.append(j-i); dzielniki.append(dzielnik); pierwszeliczby.append(i)
+
 
 indeks = dlugosc.index(max(dlugosc))
-print(f"{dlugosc[indeks]} : {pierwszeliczby[indeks]} : {dzielniki[indeks]}")
+print(f"Pierwsza liczba ciągu {liczby[pierwszeliczby[indeks]]}, długość {dlugosc[indeks]}, największy wspólny dzielnik {dzielniki[indeks]}")
 
 #zapis do pliku
 with open ("wynik4.txt", "w") as f:
     f.write(f"4.1 {suma}\n")
     f.write(f"4.2 {suma2}\n")
-    f.write(f"4.3 {dlugosc[indeks]} : {pierwszeliczby[indeks]} : {dzielniki[indeks]}\n")
+    f.write(f"4.3 Pierwsza liczba ciągu {liczby[pierwszeliczby[indeks]]}, długość {dlugosc[indeks]}, największy wspólny dzielnik {dzielniki[indeks]}\n")
