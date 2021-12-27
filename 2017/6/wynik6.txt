@@ -1,0 +1,4 @@
+6.1 Najasniejszy: 221, Najciemniejszy: 7
+6.2 149
+6.3 613
+6.4 5
