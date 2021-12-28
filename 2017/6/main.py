@@ -27,21 +27,76 @@ print(suma2)
 
 #podpunkt 3
 suma3 = 0
-for i in range(0, len(piksele[0])-1):
-    for j in range(0, len(piksele)-1):
+#środek
+for i in range(1, len(piksele[0])-1):
+    for j in range(1, len(piksele)-1):
         #print(f"{piksele[j][i]} : {piksele[j][i+1]} : {(piksele[j+1][i])}")
         if abs(piksele[j][i]-piksele[j][i+1]) > 128:
             suma3+=1
         elif abs(piksele[j][i]-piksele[j+1][i]) > 128:
             suma3+=1
+        elif abs(piksele[j][i]-piksele[j-1][i]) > 128:
+            suma3+=1
+        elif abs(piksele[j][i]-piksele[j][i-1]) > 128:
+            suma3+=1
 
-for i in range(0, len(piksele[-1])-1):
+
+#brzegowe srodki
+for i in range(1, len(piksele[-1])-1):
     if abs(piksele[-1][i]-piksele[-1][i+1]) >  128:
         suma3 +=1
+    elif abs(piksele[-1][i]-piksele[-2][i]) > 128:
+        suma3 +=1
+    elif abs(piksele[-1][i]-piksele[-1][i-1]) > 128:
+        suma3+=1
+        
 
-for i in range(0, len(piksele)-1):
+for i in range(1, len(piksele[0])-1):
+    if abs(piksele[0][i]-piksele[0][i+1]) >  128:
+        suma3 +=1
+    elif abs(piksele[0][i]-piksele[1][i]) > 128:
+        suma3 +=1
+    elif abs(piksele[0][i]-piksele[0][i-1]) > 128:
+        suma3+=1
+
+for i in range(1, len(piksele)-1):
     if abs(piksele[i][-1] - piksele[i+1][-1]) > 128:
-            suma3 +=1
+        suma3 +=1
+    elif abs(piksele[i][-1] - piksele[i][-2]) > 128:
+        suma3+=1
+    elif abs(piksele[i][-1] - piksele[i-1][-1]) > 128:
+        suma3+=1
+
+for i in range(1, len(piksele)-1):
+    if abs(piksele[i][0] - piksele[i+1][0]) > 128:
+        suma3 +=1
+    elif abs(piksele[i][0] - piksele[i][1]) > 128:
+        suma3+=1
+    elif abs(piksele[i][0] - piksele[i-1][0]) > 128:
+        suma3+=1
+
+
+#brzegi
+if abs(piksele[-1][-1]- piksele[-2][-1]) > 128:
+    suma3+=1
+elif abs(piksele[-1][-1]- piksele[-1][-2]) > 128:
+    suma3+=1
+
+if abs(piksele[0][0] - piksele[0][1]) > 128:
+    suma3+=1
+elif abs(piksele[0][0] - piksele[1][0]) > 128:
+    suma3+=1
+
+if abs(piksele[0][-1] - piksele[0][-2]) > 128:
+    suma3+=1
+elif abs(piksele[0][-1] - piksele[1][-1]) > 128:
+    suma3+=1
+
+if abs(piksele[-1][0] - piksele[-1][1]) > 128:
+    suma3+=1
+elif abs(piksele[-1][0] - piksele[-2][0]) > 128:
+    suma3+=1
+
 
 print(suma3) #zły wynik
 
@@ -58,6 +113,8 @@ for n in range(0, len(piksele[0])):
 
 print(max(dlugosci))
 
+
+#zapis do pliku
 with open("wynik6.txt", "w") as f:
     f.write(f"6.1 Najasniejszy: {najasniejszy}, Najciemniejszy: {najciemnieszy}\n")
     f.write(f"6.2 {suma2}\n")
